@@ -1,7 +1,5 @@
-PROJECT_NAME := "cicd-example"
-# Set the PATH environment variable
-export PATH := /path/to/my/directory:$(PATH)
-PKG := "github.com/DecodeWorms/$(PROJECT_NAME)"
+PROJECT_NAME := "github-actions-demo-go"
+PKG := "github.com/brpaz/$(PROJECT_NAME)"
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
  
@@ -33,6 +31,3 @@ clean: ## Remove previous build
  
 help: ## Display this help screen
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-source: ## Compile and run the source code
-    @go build -i -o build/main $(PKG)
