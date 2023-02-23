@@ -14,3 +14,7 @@ func Greeting() string {
 	}
 	return fmt.Sprintf("Hello Mr %s of Age %d and at the Address %s", us.Name, us.Age, us.Address)
 }
+
+func GetUser() string {
+	return "Get all users"
+}
